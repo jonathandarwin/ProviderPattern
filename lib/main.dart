@@ -17,13 +17,15 @@ class RootLayout extends StatelessWidget{
   Widget build(BuildContext context){
     return ChangeNotifierProvider(
       builder: (context) => MainProvider(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('Provider Pattern'),
+      child: SafeArea(
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('Provider Pattern'),
+          ),
+          body: Lamp(),
+          floatingActionButton: SwitchLamp(),
         ),
-        body: Lamp(),
-        floatingActionButton: SwitchLamp(),
-      ),
+      )
     );
   }
 }
@@ -35,8 +37,10 @@ class Lamp extends StatelessWidget{
       builder: (context, provider, _) => Container(
         color: provider.background,
         child: Center(
-          child: Icon(Icons.lightbulb_outline,
-            color: provider.lamp,),
+          child: Icon(
+            Icons.lightbulb_outline,
+            color: provider.lamp,
+          ),
         ),
       ),
     );
@@ -46,12 +50,10 @@ class Lamp extends StatelessWidget{
 class SwitchLamp extends StatelessWidget{  
   @override
   Widget build(BuildContext context){
-    final provider = Provider.of<MainProvider>(context); 
-
     return Consumer<MainProvider>(
-      builder: (contexet, provider, _) => FloatingActionButton(
+      builder: (context, provider, _) => FloatingActionButton(
         onPressed: (){
-          provider.setIsOn(provider.isOn == false);        
+          provider.isOn = !provider.isOn;        
         },
         child: Text(provider.text),
       ),

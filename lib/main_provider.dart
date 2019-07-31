@@ -3,42 +3,45 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
 class MainProvider with ChangeNotifier{
-  bool _isOn;
-  Color _background;
-  Color _lamp;
+  // ATTRIBUTE
+  bool _isOn = true;
+  Color _background = Colors.white;
+  Color _lamp = Colors.black;
   String _text = 'Off';
 
+  // GETTER
   bool get isOn => _isOn;
   Color get background => _background;
   Color get lamp => _lamp;
   String get text => _text;
 
-  void setIsOn(bool isOn){
+  // SETTER
+  set isOn(bool isOn){
     this._isOn = isOn;
     notifyListeners();
     if(isOn){
-      setBackground(Colors.white);
-      setLamp(Colors.black);
-      setText('Off');
+      background = Colors.white;
+      lamp = Colors.black;
+      text = 'Off';
     }
     else{
-      setBackground(Colors.black);
-      setLamp(Colors.white);
-      setText('On');
+      background = Colors.black;
+      lamp = Colors.white;
+      text = 'On';
     }
   }
 
-  void setBackground(Color background){
+  set background(Color background){
     this._background = background;
     notifyListeners();
   }
 
-  void setLamp(Color lamp){
+  set lamp(Color lamp){
     this._lamp = lamp;
     notifyListeners();
   }
 
-  void setText(String text){
+  set text(String text){
     this._text = text;
     notifyListeners();
   }
