@@ -36,13 +36,17 @@ Notice that in the setter method, we called a function named 'notifyListeners()'
 
 ### ChangeNotifierProvider()
 Place this widget in the root of your layout. It has 2 mandatory parameter :
+
     1. builder : used to create the instance of your provider
     2. child   : used to define widget inside <strong>ChangeNotifierProvider()</strong>
+    
 The function of this widget is to define the provider only once for your entire layout inside this widget. So, when you need to access the provider that already initiate in <strong>ChangeNotifierProvider()</strong>, you can use <strong>Consumer</strong> or <strong>Provider.of()</strong>
 
 ### Consumer
 This widget is used to access the existing provider. It will lift up to the parent that has <strong>ChangeNotifierProvider()</strong>. When it find this widget, it will take the instance of your provider and return it in the argument. It has 1 optional parameter :
+
     1. builder : it has access to your provider and it needs a return;
+    
 Widget inside <strong>Consumer</strong> will be rebuild if <strong>notifyListener()</strong> is called.
 
 ### Provider.of()
