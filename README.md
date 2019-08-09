@@ -11,7 +11,7 @@ Please add this dependency in pubspec.yaml
     flutter :
       provider : 3.0.0
       
-Please check the newest version in this link : https://pub.dev/packages/provider
+This is the latest version when i write this README. Please check the newest version in this link : https://pub.dev/packages/provider
 
 ## MainProvider
 
@@ -22,14 +22,16 @@ In DataBinding android, we extend the model class with 'BaseObservable' while in
 ### Getter
     Color get lamp => _lamp;
     
+Getter method in dart programming language is different from the other languages. In dart, we can use 'get' prefix to show that this is a getter method. We don't use bracket in the getter method.
+    
 ### Setter
     void setLamp(Color lamp){
       this._lamp = lamp;
       notifyListeners();
     }
 
-Notice that in the setter method, we called a function named 'notifyListeners()'. When this method is called, all the consumer widget will listen to the change and do rebuild itself. So, be carefull when using this method, it will refresh all the widget that listen to the provider.
-#### Note : if you want to use provider without listen to the changes, you can use this line of code instead of Consumer() :
+Notice that in the setter method, we called a function named 'notifyListeners()'.<strong>Basically, this is the key of provider pattern</strong>. When this method is called, all the consumer widget will listen to the change and do rebuild itself. So, be carefull when using this method, it will refresh all the widget that listen to the provider.
+#### Note : if you want to use provider without listen to any changes, you can use this line of code instead of Consumer() :
         YourProvider _provider = Provider.of<YourProvider>(context, listen:false);
 
 
