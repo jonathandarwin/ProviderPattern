@@ -66,4 +66,5 @@ Forever loop will occur when you call notifyListener() inside the Consumer() bec
 Rebuild all the widget makes your apps heavy. If you don't need changes in that widget but still need it to access some data, please use <strong>Consumer(context, listen:false)</strong>
 
 
-
+## Related Link :
+1. Official Docs of Provider : https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple
