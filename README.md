@@ -28,4 +28,8 @@ In DataBinding android, we extend the model class with 'BaseObservable' while in
       notifyListeners();
     }
 
-Notice that in the setter method, we called a function named 'notifyListeners()'. This method is as same as the 'notifyPropertyChanged()' in DataBinding android. notifyListeners() called when we change the value of the property in the layout. This method will notify all the widget that listen to changed property and update the value.
+Notice that in the setter method, we called a function named 'notifyListeners()'. When this method is called, all the consumer widget will listen to the change and do rebuild itself. So, be carefull when using this method, it will refresh all the widget that listen to the provider.
+#### Note : if you want to use provider without listen to the changes, you can use this line of code instead of Consumer() :
+        YourProvider _provider = Provider.of<YourProvider>(context, listen:false);
+
+
