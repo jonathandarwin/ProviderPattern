@@ -45,6 +45,9 @@ This widget is used to access the existing provider. It will lift up to the pare
     1. builder : it has access to your provider and it needs a return;
 Widget inside <strong>Consumer</strong> will be rebuild if <strong>notifyListener()</strong> is called.
 
+### Provider.of()
+Provider.of() is the alternative way when you don't want to use Consumer. It has the same functionality as the <strong>Consumer()</strong>, but you can add an optional argument called <strong>listen</strong>. If you set it to 'false', then the widget won't be rebuild when <strong>notifyListener()</strong> is called.
+
 ## Tips and Trick
 ### Put Consumer as deep as possible
 Please use Consumer() in the widget that need it. Because Consumer will listen to any changes and rebuild your widget when notifyListener() is called in our provider class.
